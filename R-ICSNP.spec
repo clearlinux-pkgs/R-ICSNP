@@ -4,18 +4,18 @@
 #
 Name     : R-ICSNP
 Version  : 1.1.1
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/ICSNP_1.1-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ICSNP_1.1-1.tar.gz
 Summary  : Tools for Multivariate Nonparametrics
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-ICSNP-lib
+Requires: R-ICSNP-lib = %{version}-%{release}
 Requires: R-ICS
 Requires: R-mvtnorm
 BuildRequires : R-ICS
 BuildRequires : R-mvtnorm
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 No detailed description available
@@ -36,11 +36,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523309038
+export SOURCE_DATE_EPOCH=1552893075
 
 %install
+export SOURCE_DATE_EPOCH=1552893075
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523309038
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -75,8 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ICSNP|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ICSNP || :
 
 
 %files
@@ -104,7 +103,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ICSNP/help/paths.rds
 /usr/lib64/R/library/ICSNP/html/00Index.html
 /usr/lib64/R/library/ICSNP/html/R.css
-/usr/lib64/R/library/ICSNP/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
