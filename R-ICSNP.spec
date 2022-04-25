@@ -4,7 +4,7 @@
 #
 Name     : R-ICSNP
 Version  : 1.1.1
-Release  : 42
+Release  : 43
 URL      : https://cran.r-project.org/src/contrib/ICSNP_1.1-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ICSNP_1.1-1.tar.gz
 Summary  : Tools for Multivariate Nonparametrics
